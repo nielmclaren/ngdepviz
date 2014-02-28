@@ -1,0 +1,29 @@
+{
+  "name": "ngdepviz",
+  "version": "0.0.1",
+  "description": "Angular dependency visualization",
+  "main": "README.md",
+  "dependencies": {
+    "angular": "~1.2.10",
+    "d3": "~3.4.3"
+  },
+  "devDependencies": {
+    "phantomjs": "~1.9.7-1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielgm/ngdepviz.git"
+  },
+  "keywords": [
+    "angular",
+    "d3"
+  ],
+  "author": "Paul Wong, Daniel McLaren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielgm/ngdepviz/issues"
+  }
+}
