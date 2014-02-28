@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>Hack Fest Feb 28</title>
+    <script type="text/javascript" src="../lib/protovis.js"></script>
+    <script type="text/javascript" src="../lib/miserables.js"></script>
+    <style type="text/css">
+
+body {
+  margin: 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript+protovis">
+
+var w = document.body.clientWidth,
+    h = document.body.clientHeight,
+    colors = pv.Colors.category19();
+
+var vis = new pv.Panel()
+    .width(w)
+    .height(h)
+    .fillStyle("white")
+    .event("mousedown", pv.Behavior.pan())
+    .event("mousewheel", pv.Behavior.zoom());
+
+var force = vis.add(pv.Layout.Force)
+    .nodes(miserables.nodes)
+    .links(miserables.links);
+
+force.link.add(pv.Line);
+
+// force.label.add(pv.Label).text(function(d) d.nodeName);
+
+force.label.add(pv.Label).text(function(d) d.display_name);
+
+force.node.add(pv.Dot)
+    .size(function(d) {
+      defaultSize = (d.linkDegree + 4) * Math.pow(this.scale, -1.5);
+      if (d.dep_source) {
+        return defaultSize;
+      } else if (d.dep_target){
+        return defaultSize;
+      } else {
+        return defaultSize;
+      }
+    })
+    .fillStyle(function(d) {
+      if (d.dep_source) {
+        return "purple";
+      }
+      else if (d.dep_target){
+        return "black"
+      }
+      else if (d.fix) {
+        return "brown";
+      }
+      else {
+        return colors(d.group);
+      }
+    })
+    .strokeStyle(function() this.fillStyle().darker())
+    .lineWidth(1)
+    .title(function(d) d.nodeName)
+    .event("mousedown", pv.Behavior.drag() )
+    .event("dblclick", function(d){
+      // console.log(d);
+      // console.log("index:"+d.index);
+      // console.log("reset");
+      for (var i=0;i<force.nodes().length;i++)
+      {
+        force.nodes()[i].dep_source = false;
+        force.nodes()[i].dep_target = false;
+        force.nodes()[i].display_name = "";
+      }
+
+      for (var i=0;i<force.links().length;i++)
+      {
+        var link = force.links()[i];
+        if (link.source == d.index || link.target == d.index) {
+          if (link.source == d.index){
+            force.nodes()[link.target].dep_target = true;
+            force.nodes()[link.target].display_name = force.nodes()[link.target].nodeName;
+          } else {
+            force.nodes()[link.source].dep_source = true;
+            force.nodes()[link.source].display_name = force.nodes()[link.source].nodeName;
+          }
+        }
+      }
+      force.nodes()[d.index].display_name = force.nodes()[d.index].nodeName;
+      vis.render();
+    })
+    .event("drag", force);
+
+
+vis.render();
+
+    </script>
+  </body>
+</html>
