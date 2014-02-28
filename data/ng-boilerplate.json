@@ -1,0 +1,213 @@
+var miserables = {
+  "nodes": [
+    {
+      "name": "placeholders",
+      "type": "module"
+    },
+    {
+      "name": "placeholders.img",
+      "type": "module"
+    },
+    {
+      "name": "placeholders.txt",
+      "type": "module"
+    },
+    {
+      "name": "placeholders.img",
+      "type": "module"
+    },
+    {
+      "name": "placeholders.txt",
+      "type": "module"
+    },
+    {
+      "name": "TextGeneratorService",
+      "type": "injectable"
+    },
+    {
+      "name": "ngBoilerplate.about",
+      "type": "module"
+    },
+    {
+      "name": "ui.state",
+      "type": "module"
+    },
+    {
+      "name": "ui.bootstrap",
+      "type": "module"
+    },
+    {
+      "name": "AboutCtrl",
+      "type": "injectable"
+    },
+    {
+      "name": "$scope",
+      "type": "injectable"
+    },
+    {
+      "name": "ngBoilerplate",
+      "type": "module"
+    },
+    {
+      "name": "templates-app",
+      "type": "module"
+    },
+    {
+      "name": "templates-common",
+      "type": "module"
+    },
+    {
+      "name": "ngBoilerplate.home",
+      "type": "module"
+    },
+    {
+      "name": "ui.route",
+      "type": "module"
+    },
+    {
+      "name": "AppCtrl",
+      "type": "injectable"
+    },
+    {
+      "name": "$location",
+      "type": "injectable"
+    },
+    {
+      "name": "ngBoilerplate.home",
+      "type": "module"
+    },
+    {
+      "name": "plusOne",
+      "type": "module"
+    },
+    {
+      "name": "HomeCtrl",
+      "type": "injectable"
+    },
+    {
+      "name": "plusOne",
+      "type": "module"
+    },
+    {
+      "name": "templates-app",
+      "type": "module"
+    },
+    {
+      "name": "about/about.tpl.html",
+      "type": "module"
+    },
+    {
+      "name": "home/home.tpl.html",
+      "type": "module"
+    },
+    {
+      "name": "about/about.tpl.html",
+      "type": "module"
+    },
+    {
+      "name": "home/home.tpl.html",
+      "type": "module"
+    },
+    {
+      "name": "templates-common",
+      "type": "module"
+    }
+  ],
+  "links": [
+    {
+      "source": 1,
+      "target": 2,
+      "type": "dependency"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "type": "dependency"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "type": "dependency"
+    },
+    {
+      "source": 7,
+      "target": 1,
+      "type": "dependency"
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "type": "dependency"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "type": "injection"
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "type": "dependency"
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "type": "dependency"
+    },
+    {
+      "source": 12,
+      "target": 15,
+      "type": "dependency"
+    },
+    {
+      "source": 12,
+      "target": 7,
+      "type": "dependency"
+    },
+    {
+      "source": 12,
+      "target": 8,
+      "type": "dependency"
+    },
+    {
+      "source": 12,
+      "target": 16,
+      "type": "dependency"
+    },
+    {
+      "source": 17,
+      "target": 11,
+      "type": "injection"
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "type": "injection"
+    },
+    {
+      "source": 19,
+      "target": 8,
+      "type": "dependency"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "type": "dependency"
+    },
+    {
+      "source": 21,
+      "target": 11,
+      "type": "injection"
+    },
+    {
+      "source": 23,
+      "target": 24,
+      "type": "dependency"
+    },
+    {
+      "source": 23,
+      "target": 25,
+      "type": "dependency"
+    }
+  ]
+}
