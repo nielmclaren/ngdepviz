@@ -8,7 +8,7 @@
     "d3": "~3.4.3"
   },
   "devDependencies": {
-    "phantomjs": "~1.9.7-1"
+    "nodemon": "~1.0.15"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
