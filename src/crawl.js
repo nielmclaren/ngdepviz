@@ -69,12 +69,12 @@ function isFunction(value){return typeof value == 'function';}
 
 function addModule(name) {
   nodes.push({name: name, type: 'module'});
-  return modules[name] = nodes.length;
+  return modules[name] = nodes.length - 1;
 }
 
 function addInjectable(name) {
   nodes.push({name: name, type: 'injectable'});
-  return injectables[name] = nodes.length;
+  return injectables[name] = nodes.length - 1;
 }
 
 function forEach(obj, iterator, context) {
@@ -124,6 +124,7 @@ angular.module = (function() {
       var controllerFn = moduleObj.controller;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
+        nodes[injectables[name]].type = "controller";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -142,6 +143,7 @@ angular.module = (function() {
       var factoryFn = moduleObj.factory;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
+        nodes[injectables[name]].type = "factory";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -160,6 +162,7 @@ angular.module = (function() {
       var serviceFn = moduleObj.service;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
+        nodes[injectables[name]].type = "service";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -191,7 +194,24 @@ var data = fs.readFileSync(p);
 var script = vm.createScript(data, p);
 script.runInNewContext(sandbox);
 
-fs.writeFileSync(path.join(__dirname, "../data/ng-boilerplate.json"), 'var miserables = ' + JSON.stringify({nodes: nodes, links: edges}, null, '  '));
+function typeToGroup(d) {
+  switch (d) {
+    case 'controller': return 0;
+    case 'factory': return 1;
+    case 'service': return 2;
+    default: return -1;
+  }
+}
 
-console.log(edges.map(function(d) { return {source: nodes[d.source].name, target: nodes[d.target].name}; }));
+fs.writeFileSync(
+  path.join(__dirname, "../data/ng-boilerplate.json"),
+  'var miserables = ' + JSON.stringify({
+    nodes: nodes.map(function(d) {
+      return {
+        nodeName: d.name + " (" + d.type + ")",
+        group: typeToGroup(d.type)
+      };
+    }),
+    links: edges
+  }, null, '  '));
 

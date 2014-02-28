@@ -1,141 +1,145 @@
 var miserables = {
   "nodes": [
     {
-      "name": "placeholders",
-      "type": "module"
+      "nodeName": "placeholders (module)",
+      "group": -1
     },
     {
-      "name": "placeholders.img",
-      "type": "module"
+      "nodeName": "placeholders.img (module)",
+      "group": -1
     },
     {
-      "name": "placeholders.txt",
-      "type": "module"
+      "nodeName": "placeholders.txt (module)",
+      "group": -1
     },
     {
-      "name": "placeholders.img",
-      "type": "module"
+      "nodeName": "placeholders.img (module)",
+      "group": -1
     },
     {
-      "name": "placeholders.txt",
-      "type": "module"
+      "nodeName": "placeholders.txt (module)",
+      "group": -1
     },
     {
-      "name": "TextGeneratorService",
-      "type": "injectable"
+      "nodeName": "TextGeneratorService (factory)",
+      "group": 1
     },
     {
-      "name": "ngBoilerplate.about",
-      "type": "module"
+      "nodeName": "ngBoilerplate.about (module)",
+      "group": -1
     },
     {
-      "name": "ui.state",
-      "type": "module"
+      "nodeName": "ui.state (module)",
+      "group": -1
     },
     {
-      "name": "ui.bootstrap",
-      "type": "module"
+      "nodeName": "placeholders (module)",
+      "group": -1
     },
     {
-      "name": "AboutCtrl",
-      "type": "injectable"
+      "nodeName": "ui.bootstrap (module)",
+      "group": -1
     },
     {
-      "name": "$scope",
-      "type": "injectable"
+      "nodeName": "AboutCtrl (controller)",
+      "group": 0
     },
     {
-      "name": "ngBoilerplate",
-      "type": "module"
+      "nodeName": "$scope (injectable)",
+      "group": -1
     },
     {
-      "name": "templates-app",
-      "type": "module"
+      "nodeName": "ngBoilerplate (module)",
+      "group": -1
     },
     {
-      "name": "templates-common",
-      "type": "module"
+      "nodeName": "templates-app (module)",
+      "group": -1
     },
     {
-      "name": "ngBoilerplate.home",
-      "type": "module"
+      "nodeName": "templates-common (module)",
+      "group": -1
     },
     {
-      "name": "ui.route",
-      "type": "module"
+      "nodeName": "ngBoilerplate.home (module)",
+      "group": -1
     },
     {
-      "name": "AppCtrl",
-      "type": "injectable"
+      "nodeName": "ui.route (module)",
+      "group": -1
     },
     {
-      "name": "$location",
-      "type": "injectable"
+      "nodeName": "AppCtrl (controller)",
+      "group": 0
     },
     {
-      "name": "ngBoilerplate.home",
-      "type": "module"
+      "nodeName": "$location (injectable)",
+      "group": -1
     },
     {
-      "name": "plusOne",
-      "type": "module"
+      "nodeName": "ngBoilerplate.home (module)",
+      "group": -1
     },
     {
-      "name": "HomeCtrl",
-      "type": "injectable"
+      "nodeName": "plusOne (module)",
+      "group": -1
     },
     {
-      "name": "plusOne",
-      "type": "module"
+      "nodeName": "HomeCtrl (controller)",
+      "group": 0
     },
     {
-      "name": "templates-app",
-      "type": "module"
+      "nodeName": "plusOne (module)",
+      "group": -1
     },
     {
-      "name": "about/about.tpl.html",
-      "type": "module"
+      "nodeName": "templates-app (module)",
+      "group": -1
     },
     {
-      "name": "home/home.tpl.html",
-      "type": "module"
+      "nodeName": "about/about.tpl.html (module)",
+      "group": -1
     },
     {
-      "name": "about/about.tpl.html",
-      "type": "module"
+      "nodeName": "home/home.tpl.html (module)",
+      "group": -1
     },
     {
-      "name": "home/home.tpl.html",
-      "type": "module"
+      "nodeName": "about/about.tpl.html (module)",
+      "group": -1
     },
     {
-      "name": "templates-common",
-      "type": "module"
+      "nodeName": "home/home.tpl.html (module)",
+      "group": -1
+    },
+    {
+      "nodeName": "templates-common (module)",
+      "group": -1
     }
   ],
   "links": [
     {
-      "source": 1,
-      "target": 2,
-      "type": "dependency"
-    },
-    {
-      "source": 1,
-      "target": 3,
-      "type": "dependency"
-    },
-    {
-      "source": 7,
-      "target": 8,
-      "type": "dependency"
-    },
-    {
-      "source": 7,
+      "source": 0,
       "target": 1,
       "type": "dependency"
     },
     {
-      "source": 7,
+      "source": 0,
+      "target": 2,
+      "type": "dependency"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "type": "dependency"
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "type": "dependency"
+    },
+    {
+      "source": 6,
       "target": 9,
       "type": "dependency"
     },
@@ -161,12 +165,12 @@ var miserables = {
     },
     {
       "source": 12,
-      "target": 7,
+      "target": 6,
       "type": "dependency"
     },
     {
       "source": 12,
-      "target": 8,
+      "target": 7,
       "type": "dependency"
     },
     {
@@ -186,7 +190,7 @@ var miserables = {
     },
     {
       "source": 19,
-      "target": 8,
+      "target": 7,
       "type": "dependency"
     },
     {
