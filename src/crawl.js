@@ -73,7 +73,7 @@ function addModule(name) {
 }
 
 function addInjectable(name) {
-  nodes.push({name: name, type: 'injectable'});
+  nodes.push({name: name});
   return injectables[name] = nodes.length - 1;
 }
 
@@ -108,14 +108,16 @@ function forEach(obj, iterator, context) {
 angular.module = (function() {
   var moduleFn = angular.module;
   return function(moduleName, deps) {
-    var moduleIndex = addModule(moduleName);
-    deps.forEach(function(d) {
-      edges.push({
-        source: moduleIndex,
-        target: modules[d] || addModule(d),
-        type: 'dependency'
+    if (deps) {
+      var moduleIndex = addModule(moduleName);
+      deps.forEach(function(d) {
+        edges.push({
+          source: moduleIndex,
+          target: modules[d] || addModule(d),
+          type: 'dependency'
+        });
       });
-    });
+    }
 
     // Mess with the module object it returns, too!
     var moduleObj = moduleFn.apply(angular, arguments);
@@ -124,7 +126,7 @@ angular.module = (function() {
       var controllerFn = moduleObj.controller;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
-        nodes[injectables[name]].type = "controller";
+        nodes[injectableIndex].type = "controller";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -143,7 +145,7 @@ angular.module = (function() {
       var factoryFn = moduleObj.factory;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
-        nodes[injectables[name]].type = "factory";
+        nodes[injectableIndex].type = "factory";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -162,7 +164,7 @@ angular.module = (function() {
       var serviceFn = moduleObj.service;
       return function(name, fn) {
         var injectableIndex = injectables[name] || addInjectable(name);
-        nodes[injectables[name]].type = "service";
+        nodes[injectableIndex].type = "service";
 
         var injections = annotate(fn);
         injections.forEach(function(d) {
@@ -189,7 +191,7 @@ var sandbox = {
   }
 };
 
-var p = path.join(__dirname, "../data/ng-boilerplate-0.3.1.js");
+var p = path.join(__dirname, "../data/ax-shared-0.0.1.min.js");
 var data = fs.readFileSync(p);
 var script = vm.createScript(data, p);
 script.runInNewContext(sandbox);
@@ -199,12 +201,12 @@ function typeToGroup(d) {
     case 'controller': return 0;
     case 'factory': return 1;
     case 'service': return 2;
-    default: return -1;
+    default: return d;
   }
 }
 
 fs.writeFileSync(
-  path.join(__dirname, "../data/ng-boilerplate.json"),
+  path.join(__dirname, "../data/ax-shared.json"),
   'var miserables = ' + JSON.stringify({
     nodes: nodes.map(function(d) {
       return {
